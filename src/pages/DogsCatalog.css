@@ -1,0 +1,75 @@
+.dogs-catalog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Full height of the viewport */
+  width: 100vw; /* Full width of the viewport */
+  padding: 20px;
+
+  background-image: url('../assets/DoggyBackground.png'); /* Default small screen image */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media (min-width: 1200px) {
+  .dogs-catalog {
+    background-image: url('../assets/DoggyBackground-large.png'); /* Large screen image */
+    background-size: cover; /* Cover entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keep image static */
+  }
+}
+
+
+h2 {
+  margin-bottom: 5px;
+  font-size: 2.5rem;
+  color: #ffffff;
+}
+
+/* Center the grid of dog cards */
+.dogs-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+  gap: 20px;
+  max-width: 1200px; /* Set a max-width for the grid */
+  width: 100%;
+  margin: 0 auto;
+  overflow-y: auto; /* Allow the list to scroll */
+}
+
+/* Styling for each dog card */
+.dog-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.2s ease-in-out;
+}
+
+.dog-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Consistent size for dog images */
+.dog-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Dog name styling */
+.dog-card h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
