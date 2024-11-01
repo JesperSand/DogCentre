@@ -10,7 +10,15 @@ const DogsCatalog = () => {
   useEffect(() => {
     const fetchDogs = async () => {
       try {
-        const response = await axios.get('https://api.jsonbin.io/v3/b/66ea6857e41b4d34e4325758');
+        const response = await axios.get(
+          'https://api.jsonbin.io/v3/b/6723abc6ad19ca34f8c1b5ca',
+          {
+            headers: {
+              'X-Master-Key': '$2a$10$HXATe0TQZ3nRI8Gl7E/gj.wFIXearf.y7EBobX0KJgvNO9ERIgY3S' // Replace this with your actual API key
+            }
+          }
+        );
+
         setDogs(response.data.record);
         setLoading(false);
       } catch (error) {

@@ -12,7 +12,15 @@ const DogsProfile = () => {
   useEffect(() => {
     const fetchDogData = async () => {
       try {
-        const response = await axios.get('https://api.jsonbin.io/v3/b/66ea6857e41b4d34e4325758'); // Your API endpoint
+        const response = await axios.get(
+          'https://api.jsonbin.io/v3/b/6723abc6ad19ca34f8c1b5ca', // Your JSONBin endpoint
+          {
+            headers: {
+              'X-Master-Key': '$2a$10$HXATe0TQZ3nRI8Gl7E/gj.wFIXearf.y7EBobX0KJgvNO9ERIgY3S' // Replace this with your actual API key
+            }
+          }
+        );
+
         const dogData = response.data.record.find(d => d.chipNumber === id); // Find the specific dog by chip number
         setDog(dogData); // Set the dog data
         setLoading(false); // Set loading to false
@@ -53,8 +61,6 @@ const DogsProfile = () => {
       </div>
     </div>
   );
-  
-  
 };
 
 export default DogsProfile;
